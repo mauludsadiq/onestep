@@ -3,35 +3,45 @@ on:
   push:
     tags:
       - v*
+  release:
+    types: [published]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
-      - name: Build
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools wheel build twine
+      - name: Clean and build
+        run: |
           rm -rf dist build *.egg-info src/*.egg-info
           python -m build
-
-      - name: Show wheel METADATA
+      - name: Check package
         run: |
-          ls -l dist
-          WHL=$(ls dist/*.whl | head -n1)
-          unzip -p "$WHL" */METADATA | sed -n '1,40p'
-
-      - name: Twine check
-        run: python -m twine check dist/*
-
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.10.2
+          python -m twine check dist/*
+          python - <<'PY'
+import glob, zipfile
+whls = sorted(glob.glob('dist/*.whl'))
+assert whls, 'no wheels built'
+whl = whls[-1]
+with zipfile.ZipFile(whl) as z:
+    meta = [n for n in z.namelist() if n.endswith('dist-info/METADATA')][0]
+    print('=== METADATA HEAD ===')
+    print('\n'.join(z.read(meta).decode().splitlines()[:15]))
+PY
+      - name: Publish to PyPI (Trusted Publishers)
+        uses: pypa/gh-action-pypi-publish@release
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
           packages-dir: dist/
