@@ -1,0 +1,2 @@
+# No runtime dependencies required.
+# Dev (optional): pytest, ruff, mypy, build, twine
