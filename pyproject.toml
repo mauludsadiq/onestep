@@ -1,3 +1,19 @@
+[project]
+name = "onestep"
+version = "0.1.6"
+description = "Instant hierarchical collapse to terminal node (O(1) traversal)"
+authors = [
+  { name = "Maulud Sadiq", email = "maulud.sadiq@example.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = []
+
 [build-system]
 requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["onestep*"]
