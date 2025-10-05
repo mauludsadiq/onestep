@@ -4,38 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "onestep"
-version = "0.1.0"
-description = "Instant hierarchical collapse to a terminal object (O(1) queries)"
+version = "0.1.1"
+description = "Instant hierarchical collapse to terminal node (O(1) traversal)"
 readme = "README.md"
-authors = [{name="Your Name", email="your.email@example.com"}]
-license = {text = "MIT"}
+authors = [{ name = "Maulud Sadiq", email = "your@email.com" }]
+license = { text = "MIT" }
 requires-python = ">=3.8"
 dependencies = []
-
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Development Status :: 4 - Beta",
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Libraries",
-]
-
-[project.urls]
-Homepage = "https://github.com/yourusername/onestep"
-"Bug Tracker" = "https://github.com/yourusername/onestep/issues"
-
-[project.scripts]
-onestep = "onestep.cli:main"
-
-[tool.pytest.ini_options]
-addopts = "-q"
-
-[tool.ruff]
-line-length = 100
-target-version = "py38"
-
-[tool.mypy]
-python_version = "3.8"
-warn_unused_configs = true
-strict = true
