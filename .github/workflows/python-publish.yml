@@ -6,9 +6,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,7 +17,8 @@ jobs:
           python -m pip install --upgrade setuptools wheel build
           rm -rf dist build *.egg-info src/*.egg-info
           python -m build
-      - name: Publish to PyPI
+      - name: Publish to PyPI with token
         uses: pypa/gh-action-pypi-publish@v1.10.2
         with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
           packages-dir: dist/
