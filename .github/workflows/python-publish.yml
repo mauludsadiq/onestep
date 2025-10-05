@@ -14,13 +14,21 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Build and check
+      - name: Build
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools wheel build twine
           rm -rf dist build *.egg-info src/*.egg-info
           python -m build
-          python -m twine check dist/*
+
+      - name: Show wheel METADATA
+        run: |
+          ls -l dist
+          WHL=$(ls dist/*.whl | head -n1)
+          unzip -p "$WHL" */METADATA | sed -n '1,40p'
+
+      - name: Twine check
+        run: python -m twine check dist/*
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.10.2

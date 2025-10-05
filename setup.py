@@ -1,10 +1,11 @@
 from setuptools import setup, find_packages
+from pathlib import Path
 
 setup(
     name="onestepx",
-    version="0.2.6",
+    version="0.2.7",
     description="Instant hierarchical collapse to terminal node (O(1) traversal)",
-    long_description=open("README.md").read(),
+    long_description=Path("README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
     author="Maulud Sadiq",
     author_email="mauludsadiq@gmail.com",
