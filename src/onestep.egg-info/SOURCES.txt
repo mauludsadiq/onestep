@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/onestep.egg-info/PKG-INFO
+src/onestep.egg-info/SOURCES.txt
+src/onestep.egg-info/dependency_links.txt
+src/onestep.egg-info/top_level.txt
+src/onestepx/__init__.py
+src/onestepx/cli.py
+src/onestepx/core.py
+src/onestepx/hierarchy.py
+src/onestepx/ordinals.py
+tests/test_onestep.py
