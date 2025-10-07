@@ -1,3 +1,5 @@
-from .core import collapse_to_terminal, TERMINAL
+from .core import TERMINAL, collapse_to_terminal
+from .hierarchy import Node
 
-__all__ = ["collapse_to_terminal", "TERMINAL"]
+__all__ = ["TERMINAL", "collapse_to_terminal", "Node"]
+__version__ = "0.3.6"
