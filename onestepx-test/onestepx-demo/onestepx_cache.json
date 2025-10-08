@@ -1,0 +1,1 @@
+{"proj_bitsets": {"budget_gt_5m": ["p1", "p3"], "status_delayed": ["p1", "p3"], "team_remote": ["p1", "p3"], "has_skill_ML": ["p1", "p3"], "deps_gt_10": ["p1", "p3"], "lastchg_gt_5": ["p1", "p3"]}, "median_budget_by_status": {"delayed": 7250000, "ok": 1200000}}

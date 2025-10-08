@@ -1,0 +1,5 @@
+[
+  {"type":"project","id":"p1","budget":8000000,"status":"delayed","team":{"location":"remote"},"dependencies":14,"audit_last_week":7,"skills":["ML","FE"]},
+  {"type":"project","id":"p2","budget":1200000,"status":"ok","team":{"location":"onsite"},"dependencies":3,"audit_last_week":1,"skills":["BE"]},
+  {"type":"project","id":"p3","budget":6500000,"status":"delayed","team":{"location":"remote"},"dependencies":12,"audit_last_week":9,"skills":["Cloud","ML"]}
+]

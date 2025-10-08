@@ -1,5 +1,5 @@
-from onestep import collapse_to_terminal, TERMINAL
-from onestep.hierarchy import Node, traverse
+from onestepx import collapse_to_terminal, TERMINAL
+from onestepx.hierarchy import Node, traverse
 
 def test_collapse_to_terminal_identity():
     root = Node("Root")

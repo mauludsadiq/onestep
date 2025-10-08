@@ -3,7 +3,7 @@ from pathlib import Path
 
 setup(
     name="onestepx",
-    version="0.3.5",
+    version="0.3.6",
     description="Instant hierarchical collapse to terminal node (O(1) traversal)",
     long_description=Path("README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",

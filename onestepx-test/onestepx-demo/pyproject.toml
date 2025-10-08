@@ -1,0 +1,30 @@
+[project]
+name = "onestepx-tools"
+version = "0.1.4"
+description = "CLI + adapters that build a T-cache for the onestepx kernel"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Maulud Sadiq", email = "mauludsadiq@gmail.com" },
+]
+dependencies = [
+    "onestepx>=0.3.5",
+]
+
+[project.scripts]
+onestepx-build = "onestepx_tools.cli_build:main"
+
+[build-system]
+requires = [
+    "setuptools>=69",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]

@@ -1,0 +1,11 @@
+{"method": "full", "t_us": 54400, "affected_flags": 3, "affected_nodes": 100, "total_flags": 3, "total_nodes": 30000, "timestamp_ns": 1759749259616148000}
+{"method": "full", "t_us": 13334, "affected_flags": 3, "affected_nodes": 1, "total_flags": 3, "total_nodes": 10000, "timestamp_ns": 1759749259672749000}
+{"method": "full", "t_us": 34992, "affected_flags": 3, "affected_nodes": 1, "total_flags": 3, "total_nodes": 20000, "timestamp_ns": 1759749259756479000}
+{"method": "full", "t_us": 15, "affected_flags": 5, "affected_nodes": 1, "total_flags": 5, "total_nodes": 3, "timestamp_ns": 1759749535643318000}
+{"method": "incremental", "t_us": 58, "affected_flags": 2, "affected_nodes": 1, "total_flags": 5, "total_nodes": 3, "timestamp_ns": 1759749812377710000}
+{"method": "full", "t_us": 16, "affected_flags": 5, "affected_nodes": 1, "total_flags": 5, "total_nodes": 3, "timestamp_ns": 1759749860201951000}
+{"method": "full", "t_us": 16, "affected_flags": 5, "affected_nodes": 1, "total_flags": 5, "total_nodes": 3, "timestamp_ns": 1759749987244338000}
+{"method": "incremental", "t_us": 22, "affected_flags": 1, "affected_nodes": 1, "total_flags": 5, "total_nodes": 3, "timestamp_ns": 1759750177730678000}
+{"method": "incremental", "t_us": 1960077, "affected_flags": 1, "affected_nodes": 100, "total_flags": 3, "total_nodes": 30000, "timestamp_ns": 1759750407161684000}
+{"method": "incremental", "t_us": 10021, "affected_flags": 0, "affected_nodes": 1, "total_flags": 3, "total_nodes": 10000, "timestamp_ns": 1759750407202265000}
+{"method": "full", "t_us": 39666, "affected_flags": 3, "affected_nodes": 1, "total_flags": 3, "total_nodes": 20000, "timestamp_ns": 1759750407299209000}

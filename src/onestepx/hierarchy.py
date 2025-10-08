@@ -4,6 +4,10 @@ from dataclasses import dataclass, field
 
 @dataclass(eq=False)
 class Node:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not hasattr(self, 'flags'):
+            self.flags = {}  # ensure .flags always exists
     name: str
     ordinal: object | None = None
     children: list["Node"] = field(default_factory=list)
@@ -27,3 +31,13 @@ def traverse(node: Node, visited: set[Node] | None = None) -> set[Node]:
     for child in node.children:
         traverse(child, visited)
     return visited
+
+# --- Global safety patch for external imports (drivers/tests) ---
+_orig_init = Node.__init__
+def _patched_init(self, *a, **kw):
+    _orig_init(self, *a, **kw)
+    if not hasattr(self, "flags"):
+        self.flags = {}
+Node.__init__ = _patched_init
+# ----------------------------------------------------------------
+
