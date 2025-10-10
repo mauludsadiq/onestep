@@ -1,0 +1,25 @@
+{
+  "benchmark": "cpu_bitset_intersection_3way",
+  "stats": {
+    "unit": "\u00b5s/query",
+    "avg": 0.1521,
+    "median": 0.1512,
+    "stdev": 0.0021,
+    "min": 0.1501,
+    "max": 0.1557,
+    "trials": [
+      0.1532,
+      0.1501,
+      0.1505,
+      0.1512,
+      0.1557
+    ],
+    "approx_qps": 6615943
+  },
+  "env": {
+    "python": "3.12.11",
+    "platform": "macOS-15.5-arm64-arm-64bit",
+    "processor": "arm",
+    "onestepx_version": "0.3.7"
+  }
+}

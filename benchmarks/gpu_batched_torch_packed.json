@@ -1,0 +1,18 @@
+{
+  "benchmark": "gpu_batched_torch_packed_3way",
+  "device": "mps",
+  "bits": 2000000,
+  "words": 31250,
+  "batch_size": 256,
+  "repeats": 10,
+  "avg_us_per_query": 34.443,
+  "approx_qps": 29033,
+  "intersection_count_per_query": 17200598,
+  "checksum": 44033530880,
+  "env": {
+    "python": "3.12.11",
+    "platform": "macOS-15.5-arm64-arm-64bit",
+    "torch": "2.8.0",
+    "mps_available": true
+  }
+}

@@ -4,35 +4,29 @@ from dataclasses import dataclass, field
 
 @dataclass(eq=False)
 class Node:
-    def __init__(self, *args, **kwargs):
-        object.__init__(self)
-        if not hasattr(self, 'flags'):
-            self.flags = {}  # ensure .flags always exists
-    name: str
-    ordinal: object | None = None
-    children: list["Node"] = field(default_factory=list)
+    def __init__(self, name: str, children=None):
+        self.name = name
+        self.children = []
+        if children:
+            for ch in children:
+                self.add_child(ch)
 
     def add_child(self, node: "Node") -> None:
         self.children.append(node)
 
-    def __repr__(self) -> str:
+    def traverse(self):
+        yield self
+        for ch in self.children:
+            yield from ch.traverse()
+
+    def __repr__(self):
         return f"Node({self.name})"
 
-def traverse(node: Node, visited: set[Node] | None = None) -> set[Node]:
-    """DFS traversal returning identity-set of visited nodes.
 
-    Uses object identity (hash by id) due to eq=False in dataclass.
-    """
-    if visited is None:
-        visited = set()
-    if node in visited:
-        return visited
-    visited.add(node)
-    for child in node.children:
-        traverse(child, visited)
-    return visited
-
-# --- Global safety patch for external imports (drivers/tests) ---
-_orig_init = Node.__init__
-# ----------------------------------------------------------------
-
+# --- module-level helper for tests ---
+def traverse(root: "Node"):
+    """Yield nodes in pre-order starting from root."""
+    if hasattr(root, "traverse"):
+        yield from root.traverse()
+    else:
+        yield root

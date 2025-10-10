@@ -1,0 +1,31 @@
+{
+  "benchmark": "cpu_kway_scaling",
+  "rows": [
+    {
+      "k": 2,
+      "us_per_query": 0.1418
+    },
+    {
+      "k": 3,
+      "us_per_query": 0.2208
+    },
+    {
+      "k": 4,
+      "us_per_query": 0.2921
+    },
+    {
+      "k": 5,
+      "us_per_query": 0.3591
+    },
+    {
+      "k": 6,
+      "us_per_query": 0.4269
+    }
+  ],
+  "env": {
+    "python": "3.12.11",
+    "platform": "macOS-15.5-arm64-arm-64bit",
+    "processor": "arm",
+    "onestepx_version": "0.3.7"
+  }
+}

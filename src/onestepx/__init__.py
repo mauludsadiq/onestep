@@ -1,22 +1,27 @@
-from .core import TERMINAL, collapse_to_terminal
+"""OneStepX public API (safe, no monkeypatch)."""
+
+__version__ = "0.3.8"
+
 from .hierarchy import Node
+from .core import TERMINAL, collapse_to_terminal
+from .runtime import ensure_collapsed, collapse_hash
+from .expr import compile_expr
+from .temporal import between, sum_by, avg_by, median_by
+from .ordinals import *
 
-__all__ = ["TERMINAL", "collapse_to_terminal", "Node"]
-__version__ = "0.3.6"
+# Ensure TERMINAL.flags always exists for drivers/tests.
+if not hasattr(TERMINAL, "flags"):
+    TERMINAL.flags = {}
 
-# --- Ultimate fallback: ensure all Node instances in memory have .flags ---
-import sys
-for mod in list(sys.modules.values()):
-    try:
-        Node = getattr(mod, "Node", None)
-        if Node and hasattr(Node, "__init__"):
-            orig = Node.__init__
-            def _auto_flags(self, *a, **kw):
-                orig(self, *a, **kw)
-                if not hasattr(self, "flags"):
-                    self.flags = {}
-            Node.__init__ = _auto_flags
-    except Exception:
-        pass
-# -------------------------------------------------------------------------
+__all__ = [
+    "Node", "TERMINAL", "collapse_to_terminal",
+    "ensure_collapsed", "collapse_hash",
+    "compile_expr", "between", "sum_by", "avg_by", "median_by"
+]
+
+# re-exports
+try:
+    from .compressor import CompressedFlags  # noqa: F401
+except Exception:
+    pass
 

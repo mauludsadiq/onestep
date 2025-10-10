@@ -1,0 +1,5 @@
+{
+  "benchmark": "gpu_baseline_delta_phi",
+  "status": "skipped",
+  "error": "No module named 'cupy'"
+}

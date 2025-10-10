@@ -1,0 +1,7 @@
+{
+  "benchmark": "compression_micro",
+  "status": "ok",
+  "reason": "",
+  "intersection": 133334,
+  "time_us": 6770.25
+}

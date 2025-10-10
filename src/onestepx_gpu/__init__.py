@@ -1,0 +1,1 @@
+from .engine import fused_and_popcount_3way_resident
